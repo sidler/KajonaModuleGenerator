@@ -5,12 +5,12 @@
 ********************************************************************************************************/
 
 /**
- * Portal-class of the skeleton module.
+ * Portal-class of the XX_MODULE_NAME module.
  *
  * @package module_skeleton
  * @author XX_AUTHOR_EMAIL
- * @module skeleton
- * @moduleId _skeleton_module_id_
+ * @module XX_MODULE_NAME
+ * @moduleId _XX_MODULE_NAME_module_id_
  */
 class class_module_skeleton_portalcontroller extends class_portal_controller implements interface_portal {
 
@@ -24,14 +24,14 @@ class class_module_skeleton_portalcontroller extends class_portal_controller imp
     protected function actionList() {
         $strReturn = "";
 
-
+        $strEntries = "";
         //Check rights
         foreach(class_module_skeleton_record::getObjectList() as $objOneRecord) {
             if(!$objOneRecord->rightView())
                 continue;
 
             $objMapper = new class_template_mapper($objOneRecord);
-            $strOneRecord = $objMapper->writeToTemplate("/module_skeleton/".$this->arrElementData["char1"], "skeleton", false);
+            $strOneRecord = $objMapper->writeToTemplate("/module_".$this->getArrModule("modul")."/".$this->arrElementData["char1"], "XX_MODULE_NAME_record", false);
 
             //Add pe code
             $arrPeConfig = array(
@@ -44,9 +44,12 @@ class class_module_skeleton_portalcontroller extends class_portal_controller imp
                 "pe_action_delete_params" => "&systemid=".$objOneRecord->getSystemid()
             );
             $strOneRecord .= class_element_portal::addPortalEditorCode($strOneRecord, $objOneRecord->getSystemid(), $arrPeConfig);
-
-            $strReturn .= $strOneRecord;
+            $strEntries .= $strOneRecord;
         }
+
+        $strListTemplateID = $this->objTemplate->readTemplate("/module_".$this->getArrModule("modul")."/".$this->arrElementData["char1"], "XX_MODULE_NAME_list");
+        $strReturn .= $this->objTemplate->fillTemplate(array("XX_MODULE_NAME_records" => $strEntries), $strListTemplateID);
+
 
         return $strReturn;
 

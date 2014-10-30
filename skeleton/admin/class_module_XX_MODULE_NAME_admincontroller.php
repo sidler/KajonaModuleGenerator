@@ -6,21 +6,21 @@
 
 
 /**
- * Admin controller of the skeleton-module. Handles all admin requests.
+ * Admin controller of the XX_MODULE_NAME-module. Handles all admin requests.
  *
- * @package module_skeleton
+ * @package module_XX_MODULE_NAME
  * @author XX_AUTHOR_EMAIL
  *
- * @objectList class_module_skeleton_record
- * @objectEdit class_module_skeleton_record
- * @objectNew  class_module_skeleton_record
+ * @objectList class_module_XX_MODULE_NAME_XX_RECORD_NAME
+ * @objectEdit class_module_XX_MODULE_NAME_XX_RECORD_NAME
+ * @objectNew  class_module_XX_MODULE_NAME_XX_RECORD_NAME
  *
  * @autoTestable list,new
  *
- * @module skeleton
- * @moduleId _skeleton_module_id_
+ * @module XX_MODULE_NAME
+ * @moduleId _XX_MODULE_NAME_module_id_
  */
-class class_module_skeleton_admincontroller extends class_admin_evensimpler implements interface_admin {
+class class_module_XX_MODULE_NAME_admincontroller extends class_admin_evensimpler implements interface_admin {
 
 
     public function getOutputModuleNavi() {

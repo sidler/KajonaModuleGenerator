@@ -5,13 +5,13 @@
 ********************************************************************************************************/
 
 /**
- * Portal-part of the skeleton-element
+ * Portal-part of the XX_MODULE_NAME-element
  *
- * @package module_skeleton
+ * @package module_XX_MODULE_NAME
  * @author XX_AUTHOR_EMAIL
  * @targetTable element_universal.content_id
  */
-class class_element_skeleton_portal extends class_element_portal implements interface_portal_element {
+class class_element_XX_MODULE_NAME_portal extends class_element_portal implements interface_portal_element {
 
 
     /**
@@ -22,10 +22,10 @@ class class_element_skeleton_portal extends class_element_portal implements inte
     public function loadData() {
         $strReturn = "";
         //Load the data
-        $objModuleController = class_module_system_module::getModuleByName("skeleton");
+        $objModuleController = class_module_system_module::getModuleByName("XX_MODULE_NAME");
         if($objModuleController != null) {
-            $objFaqs = $objModuleController->getPortalInstanceOfConcreteModule($this->arrElementData);
-            $strReturn = $objFaqs->action();
+            $objPortalController = $objModuleController->getPortalInstanceOfConcreteModule($this->arrElementData);
+            $strReturn = $objPortalController->action();
         }
         return $strReturn;
     }

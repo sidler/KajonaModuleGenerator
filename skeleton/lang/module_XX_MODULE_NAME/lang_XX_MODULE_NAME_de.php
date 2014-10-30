@@ -10,4 +10,4 @@
 //Kajona Language Editor Core Build 385
 
 //editable entries
-$lang["modul_titel"]                     = "skeleton";
+$lang["modul_titel"]                     = "XX_MODULE_NAME";

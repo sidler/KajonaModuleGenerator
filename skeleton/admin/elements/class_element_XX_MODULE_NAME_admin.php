@@ -5,14 +5,14 @@
 ********************************************************************************************************/
 
 /**
- * Class representing the admin-part of the skeleton element
+ * Class representing the admin-part of the XX_MODULE_NAME element
  *
- * @package module_skeleton
+ * @package module_XX_MODULE_NAME
  * @author XX_AUTHOR_EMAIL
  *
  * @targetTable element_universal.content_id
  */
-class class_element_skeleton_admin extends class_element_admin implements interface_admin_element {
+class class_element_XX_MODULE_NAME_admin extends class_element_admin implements interface_admin_element {
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class class_element_skeleton_admin extends class_element_admin implements interf
      * @fieldType template
      * @fieldLabel template
      *
-     * @fieldTemplateDir /module_skeleton
+     * @fieldTemplateDir /module_XX_MODULE_NAME
      */
     private $strTemplate;
 

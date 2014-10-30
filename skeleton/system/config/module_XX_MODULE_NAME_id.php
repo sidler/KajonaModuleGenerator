@@ -4,6 +4,6 @@
 *       Published under the GNU LGPL v2.1, see /system/licence_lgpl.txt                                 *
 ********************************************************************************************************/
 
-//ID of the skeleton module
-define("_skeleton_module_id_",	XX_MODULE_NR);
+//ID of the XX_MODULE_NAME module
+define("_XX_MODULE_NAME_module_id_",	XX_MODULE_NR);
 

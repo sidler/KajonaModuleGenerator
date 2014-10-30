@@ -5,33 +5,33 @@
 ********************************************************************************************************/
 
 /**
- * Class providing an installer for the skelton module
+ * Class providing an installer for the XX_MODULE_NAME module
  *
- * @package module_skeleton
- * @moduleId _skeleton_module_id_
+ * @package module_XX_MODULE_NAME
+ * @moduleId _XX_MODULE_NAME_module_id_
  */
-class class_installer_skeleton extends class_installer_base implements interface_installer_removable {
+class class_installer_XX_MODULE_NAME extends class_installer_base implements interface_installer_removable {
 
     public function install() {
 		$strReturn = "";
         $objSchemamanager = new class_orm_schemamanager();
 
 		$strReturn .= "Installing tables...\n";
-        $objSchemamanager->createTable("class_module_skeleton_record");
+        $objSchemamanager->createTable("class_module_XX_MODULE_NAME_XX_RECORD_NAME");
 
 
 		//register the module
-		$this->registerModule("skeleton", _skeleton_module_id_, "class_module_skeleton_portalcontroller.php", "class_module_skeleton_admincontroller.php", $this->objMetadata->getStrVersion(), true);
+		$this->registerModule("XX_MODULE_NAME", _XX_MODULE_NAME_module_id_, "class_module_XX_MODULE_NAME_portalcontroller.php", "class_module_XX_MODULE_NAME_admincontroller.php", $this->objMetadata->getStrVersion(), true);
 
        //Register the element
-       $strReturn .= "Registering skeleton-element...\n";
+       $strReturn .= "Registering XX_MODULE_NAME-element...\n";
        //check, if not already existing
-       $objElement = class_module_pages_element::getElement("skeleton");
+       $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
        if($objElement == null) {
            $objElement = new class_module_pages_element();
            $objElement->setStrName("faqs");
-           $objElement->setStrClassAdmin("class_element_skeleton_admin.php");
-           $objElement->setStrClassPortal("class_element_skeleton_portal.php");
+           $objElement->setStrClassAdmin("class_element_XX_MODULE_NAME_admin.php");
+           $objElement->setStrClassPortal("class_element_XX_MODULE_NAME_portal.php");
            $objElement->setIntCachetime(3600);
            $objElement->setIntRepeat(1);
            $objElement->setStrVersion($this->objMetadata->getStrVersion());
@@ -76,13 +76,13 @@ class class_installer_skeleton extends class_installer_base implements interface
      */
     public function remove(&$strReturn) {
         //delete the page-element
-        $objElement = class_module_pages_element::getElement("skeleton");
+        $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
         if($objElement != null) {
-            $strReturn .= "Deleting page-element 'skeleton'...\n";
+            $strReturn .= "Deleting page-element 'XX_MODULE_NAME'...\n";
             $objElement->deleteObject();
         }
         else {
-            $strReturn .= "Error finding page-element 'skeleton', aborting.\n";
+            $strReturn .= "Error finding page-element 'XX_MODULE_NAME', aborting.\n";
             return false;
         }
 
@@ -105,7 +105,7 @@ class class_installer_skeleton extends class_installer_base implements interface
         }
 
         //delete the tables
-        foreach(array("skeleton") as $strOneTable) {
+        foreach(array("XX_MODULE_NAME_XX_RECORD_NAME") as $strOneTable) {
             $strReturn .= "Dropping table ".$strOneTable."...\n";
             if(!$this->objDB->_pQuery("DROP TABLE ".$this->objDB->encloseTableName(_dbprefix_.$strOneTable)."", array())) {
                 $strReturn .= "Error deleting table, aborting.\n";
