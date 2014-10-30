@@ -7,3 +7,6 @@
  */
 
 include_once "bootsrap.php";
+
+$objView = new \de\mulchprod\kajona\modulegenerator\view\ConfigView();
+echo $objView->generateView();

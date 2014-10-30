@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Kajona Module Generator</title>
+
+    <style type="text/css">
+        label {
+            width: 200px;
+            display: inline-block;
+            text-align: right;
+            padding: 0 5px ;
+        }
+
+        input {
+            width: 200px;
+            display: inline-block;
+        }
+
+        .formrow {
+            margin: 5px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>Kajona Module Generator</h1>
+
+<form>
+    <div class="formrow"><label for="module_name">Module Name</label><input type="text" name="module_name" id="module_name"/></div>
+    <div class="formrow"><label for="module_author">Module Author</label><input type="text" name="module_author" id="module_author"/></div>
+    <div class="formrow"><label for="module_nr">Module Nr</label><input type="text" name="module_nr" id="module_nr"/></div>
+    <div class="formrow"><label for="record_name">Record Name</label><input type="text" name="record_name" id="record_name"/></div>
+
+    <fieldset>
+        <div class="formrow"><label for="property_name">Property Name</label><input type="text" name="property_name" id="property_name"/></div>
+
+    </fieldset>
+</form>
+
+<div style="display: hidden;" id="property_template">
+
+</div>
+
+</body>
+</html>
