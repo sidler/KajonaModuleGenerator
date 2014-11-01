@@ -1,7 +1,7 @@
 <?php
-namespace de\mulchprod\kajona\modulegenerator;
+namespace de\mulchprod\kajona\modulegenerator\model;
 
-class Config {
+class BasicConfig {
 
     private $XX_MODULE_NR = 0;
     private $XX_AUTHOR_EMAIL = "demo@kajona.de";
@@ -12,6 +12,10 @@ class Config {
     private $XX_RECORD_NAME = "";
     private $XX_RECORD_PROPERTIES = "";
 
+    /**
+     * @var PropertyConfig[]
+     */
+    private $arrProperties = array();
 
     private $arrBaseFiles = array(
         "admin_element_class" => "/admin/elements/class_element_XX_MODULE_NAME_admin.php",
@@ -39,4 +43,82 @@ class Config {
             "XX_RECORD_NAME" => $this->XX_RECORD_NAME
         );
     }
+
+    /**
+     * @return string
+     */
+    public function getXXMODULENAME() {
+        return $this->XX_MODULE_NAME;
+    }
+
+    /**
+     * @param string $XX_MODULE_NAME
+     */
+    public function setXXMODULENAME($XX_MODULE_NAME) {
+        $this->XX_MODULE_NAME = $XX_MODULE_NAME;
+    }
+
+    /**
+     * @return string
+     */
+    public function getXXAUTHOREMAIL() {
+        return $this->XX_AUTHOR_EMAIL;
+    }
+
+    /**
+     * @param string $XX_AUTHOR_EMAIL
+     */
+    public function setXXAUTHOREMAIL($XX_AUTHOR_EMAIL) {
+        $this->XX_AUTHOR_EMAIL = $XX_AUTHOR_EMAIL;
+    }
+
+    /**
+     * @return int
+     */
+    public function getXXMODULENR() {
+        return $this->XX_MODULE_NR;
+    }
+
+    /**
+     * @param int $XX_MODULE_NR
+     */
+    public function setXXMODULENR($XX_MODULE_NR) {
+        $this->XX_MODULE_NR = $XX_MODULE_NR;
+    }
+
+    /**
+     * @return string
+     */
+    public function getXXRECORDNAME() {
+        return $this->XX_RECORD_NAME;
+    }
+
+    /**
+     * @param string $XX_RECORD_NAME
+     */
+    public function setXXRECORDNAME($XX_RECORD_NAME) {
+        $this->XX_RECORD_NAME = $XX_RECORD_NAME;
+    }
+
+
+
+
+    /**
+     * @return PropertyConfig[]
+     */
+    public function getArrProperties() {
+        return $this->arrProperties;
+    }
+
+    /**
+     * @param PropertyConfig[] $arrProperties
+     */
+    public function setArrProperties($arrProperties) {
+        $this->arrProperties = $arrProperties;
+    }
+
+
+
+
+
 }

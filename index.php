@@ -8,5 +8,9 @@
 
 include_once "bootsrap.php";
 
+\de\mulchprod\kajona\modulegenerator\model\ConfigManager::updateConfigFromRequest();
+
 $objView = new \de\mulchprod\kajona\modulegenerator\view\ConfigView();
 echo $objView->generateView();
+
+\de\mulchprod\kajona\modulegenerator\model\ConfigManager::saveCurrentConfig();

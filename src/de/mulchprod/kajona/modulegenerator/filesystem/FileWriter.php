@@ -9,13 +9,13 @@
 namespace de\mulchprod\kajona\modulegenerator\filesystem;
 
 
-use de\mulchprod\kajona\modulegenerator\Config;
+use de\mulchprod\kajona\modulegenerator\BasicConfig;
 
 class FolderWriter {
 
     private $objConfig;
 
-    function __construct(Config $objConfig) {
+    function __construct(BasicConfig $objConfig) {
         $this->objConfig = $objConfig;
     }
 

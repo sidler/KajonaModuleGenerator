@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <meta charset="UTF-8">
     <title>Kajona Module Generator</title>
 
     <style type="text/css">
+        body {
+            font-family: 'Source Code Pro';
+        }
         label {
             width: 200px;
             display: inline-block;
@@ -23,26 +28,50 @@
 
         fieldset {
             border: 1px solid #ccc;
+            margin: 4px;
         }
     </style>
+
+    <script type="text/javascript">
+        ModuleGenerator = {
+            addProperty : function() {
+                var strContent = $("#property_template").clone().html();
+                var intPropertyCount = $("#property_list").length;
+                var find = '\\[x\\]';
+                var re = new RegExp(find, 'g');
+                strContent = strContent.replace(re, "["+(intPropertyCount+1)+"]");
+                $("#property_list").append(strContent);
+            }
+        };
+    </script>
+
 </head>
 <body>
 <h1>Kajona Module Generator</h1>
 
-<form>
-    <div class="formrow"><label for="module_name">Module Name</label><input type="text" name="module_name" id="module_name"/></div>
-    <div class="formrow"><label for="module_author">Module Author</label><input type="text" name="module_author" id="module_author"/></div>
-    <div class="formrow"><label for="module_nr">Module Nr</label><input type="text" name="module_nr" id="module_nr"/></div>
-    <div class="formrow"><label for="record_name">Record Name</label><input type="text" name="record_name" id="record_name"/></div>
+<form method="post" action="">
+    <h2>Basic information</h2>
+    <div class="formrow"><label for="module_name">Module Name</label><input type="text" name="module_name" id="module_name" value="XX_MODULE_NAME"/></div>
+    <div class="formrow"><label for="module_author">Module Author</label><input type="text" name="module_author" id="module_author" value="XX_MODULE_AUTHOR"/></div>
+    <div class="formrow"><label for="module_nr">Module Nr</label><input type="text" name="module_nr" id="module_nr" value="XX_MODULE_NR"/></div>
+    <div class="formrow"><label for="record_name">Record Name</label><input type="text" name="record_name" id="record_name" value="XX_RECORD_NAME"/></div>
 
-    <fieldset>
-        <div class="formrow"><label for="property_name">Property Name</label><input type="text" name="property_name" id="property_name"/></div>
-
-    </fieldset>
+    <h2>Record properties</h2>
+    <div id="property_list">
+        XX_PROPERTY_LIST
+    </div>
+    <div class="formrow"><input type="button" onclick="ModuleGenerator.addProperty();" value="+ Add property" /></div>
+    <div class="formrow"><input type="submit" value="Generate Module" /></div>
+    <input type="hidden" name="updatecfg" value="true">
 </form>
 
-<div style="display: hidden;" id="property_template">
-
+<div style="display: none;" id="property_template">
+    <fieldset>
+        <div class="formrow"><label for="property_name[x]">Property Name</label><input type="text" name="property_name[x]" id="property_name[x]"/></div>
+        <div class="formrow"><label for="property_indexable[x]">Indexable</label><input type="checkbox" name="property_indexable[x]" id="property_indexable[x]"/></div>
+        <div class="formrow"><label for="property_mandatory[x]">Mandatory</label><input type="checkbox" name="property_mandatory[x]" id="property_mandatory[x]"/></div>
+        <div class="formrow"><label for="property_templateexport[x]">Export to Template</label><input type="checkbox" name="property_templateexport[x]" id="property_templateexport[x]"/></div>
+    </fieldset>
 </div>
 
 </body>
