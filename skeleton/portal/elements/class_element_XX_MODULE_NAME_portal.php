@@ -15,7 +15,7 @@ class class_element_XX_MODULE_NAME_portal extends class_element_portal implement
 
 
     /**
-     * Loads the skeleton-controller and passes control
+     * Loads the XX_MODULE_NAME-controller and passes control
      *
      * @return string
      */

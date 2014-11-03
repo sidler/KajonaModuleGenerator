@@ -68,11 +68,17 @@ class FileContentWriter {
             $strTemplateProperties .= $objOneProperty->getAsTemplateSnippet();
         }
 
+        $strLangEntries = "";
+        foreach($this->objConfig->getArrProperties() as $objOneProperty) {
+            $strLangEntries .= $objOneProperty->getAsLanguageProperty();
+        }
+
         $arrMapping = array(
             "XX_RECORD_PROPERTIES" => $strPropertyDefinitions,
             "XX_RECORD_ACCESSORS" => $strAccessors,
             "XX_GET_STR_DISPLAYNAME" => $strDisplayName,
             "XX_TEMPLATE_PROPERTY_LIST" => $strTemplateProperties,
+            "XX_PROPERTY_LABELS" => $strLangEntries
         );
 
 

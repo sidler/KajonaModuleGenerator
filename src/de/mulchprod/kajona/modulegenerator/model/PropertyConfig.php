@@ -12,10 +12,12 @@ class PropertyConfig {
 
 
     public function getAsPropertyDefinition() {
+
         $strReturn  = "\n";
         $strReturn .= "    /**\n";
         $strReturn .= "     * @var string\n";
-        $strReturn .= "     * @targetTable ".ConfigManager::getCurrentConfig()->getXXMODULENAME().".".ConfigManager::getCurrentConfig()->getXXRECORDNAME()."_".$this->getStrName()."\n";
+        $strReturn .= "     * @tableColumn ".ConfigManager::getCurrentConfig()->getXXMODULENAME()."_".ConfigManager::getCurrentConfig()->getXXRECORDNAME().".".ConfigManager::getCurrentConfig()->getXXRECORDNAME()."_".$this->getStrName()."\n";
+        $strReturn .= "     * @tableColumnDatatype text\n";
         $strReturn .= "     * @fieldType text\n";
 
         if($this->isBitMandatory())
@@ -38,12 +40,15 @@ class PropertyConfig {
 
     public function getAsTemplateSnippet() {
         if($this->isBitTemplateExport()) {
-            return "<div>%%".$this->getPropertyVariableName()."%%</div>";
+            return "<div data-kajona-editable=\"%%strSystemid%%#".$this->getPropertyVariableName()."#plain\">%%".$this->getPropertyVariableName()."%%</div>\n";
         }
 
         return "";
     }
 
+    public function getAsLanguageProperty() {
+        return "\$lang[\"form_".ConfigManager::getCurrentConfig()->getXXMODULENAME()."_".$this->getStrName()."\"] = \"".$this->getStrName()."\";\n";
+    }
 
     public function getAsAccessors() {
         $strReturn  = "\n";

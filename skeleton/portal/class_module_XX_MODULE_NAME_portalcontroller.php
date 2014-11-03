@@ -26,7 +26,7 @@ class class_module_XX_MODULE_NAME_portalcontroller extends class_portal_controll
 
         $strEntries = "";
         //Check rights
-        foreach(class_module_skeleton_record::getObjectList() as $objOneRecord) {
+        foreach(class_module_XX_MODULE_NAME_XX_RECORD_NAME::getObjectList() as $objOneRecord) {
             if(!$objOneRecord->rightView())
                 continue;
 

@@ -11,3 +11,4 @@
 
 //editable entries
 $lang["modul_titel"]                     = "XX_MODULE_NAME";
+XX_PROPERTY_LABELS

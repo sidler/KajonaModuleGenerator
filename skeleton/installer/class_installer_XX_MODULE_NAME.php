@@ -29,7 +29,7 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
        $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
        if($objElement == null) {
            $objElement = new class_module_pages_element();
-           $objElement->setStrName("faqs");
+           $objElement->setStrName("XX_MODULE_NAME");
            $objElement->setStrClassAdmin("class_element_XX_MODULE_NAME_admin.php");
            $objElement->setStrClassPortal("class_element_XX_MODULE_NAME_portal.php");
            $objElement->setIntCachetime(3600);

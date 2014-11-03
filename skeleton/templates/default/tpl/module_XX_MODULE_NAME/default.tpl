@@ -8,7 +8,7 @@
 
 <XX_MODULE_NAME_record>
     <div class="XX_MODULE_NAMERecord">
-        XX_TEMPLATE_PROPERTY_LIST
+XX_TEMPLATE_PROPERTY_LIST
     </div>
 </XX_MODULE_NAME_record>
 
