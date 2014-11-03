@@ -37,3 +37,7 @@ spl_autoload_register(function ($class) {
         require $file;
     }
 });
+
+
+
+session_start();

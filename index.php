@@ -6,7 +6,7 @@
  * Time: 10:51
  */
 
-include_once "bootsrap.php";
+include_once "bootstrap.php";
 
 \de\mulchprod\kajona\modulegenerator\model\ConfigManager::updateConfigFromRequest();
 

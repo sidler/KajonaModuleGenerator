@@ -8,14 +8,52 @@ class BasicConfig {
     private $XX_TEMPLATE_PROPERTY_LIST = "";
     private $XX_GET_STR_DISPLAYNAME = "";
     private $XX_RECORD_GETTER_SETTER = "";
-    private $XX_MODULE_NAME = "";
-    private $XX_RECORD_NAME = "";
+    private $XX_MODULE_NAME = "demo";
+    private $XX_RECORD_NAME = "record";
     private $XX_RECORD_PROPERTIES = "";
+    private $XX_PORTAL_CODE = true;
 
     /**
      * @var PropertyConfig[]
      */
     private $arrProperties = array();
+    private $arrSerializedProperties = array();
+
+    public function __sleep() {
+        $this->arrSerializedProperties = array();
+        foreach($this->arrProperties as $objOneProp) {
+            $this->arrSerializedProperties[] = serialize($objOneProp);
+        }
+
+
+        return array(
+            "XX_MODULE_NR",
+            "XX_AUTHOR_EMAIL",
+            "XX_TEMPLATE_PROPERTY_LIST",
+            "XX_GET_STR_DISPLAYNAME",
+            "XX_RECORD_GETTER_SETTER",
+            "XX_MODULE_NAME",
+            "XX_RECORD_NAME",
+            "XX_RECORD_PROPERTIES",
+            "XX_PORTAL_CODE",
+            "arrSerializedProperties"
+        );
+    }
+
+    public function __wakeup() {
+        $this->arrProperties = array();
+        foreach($this->arrSerializedProperties as $strOneProp) {
+            $this->arrProperties[] = unserialize($strOneProp);
+        }
+    }
+
+
+    public function __construct() {
+        $this->XX_MODULE_NR = time();
+    }
+
+
+
 
     private $arrBaseFiles = array(
         "admin_element_class" => "/admin/elements/class_element_XX_MODULE_NAME_admin.php",
@@ -98,6 +136,20 @@ class BasicConfig {
      */
     public function setXXRECORDNAME($XX_RECORD_NAME) {
         $this->XX_RECORD_NAME = $XX_RECORD_NAME;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isXXPORTALCODE() {
+        return $this->XX_PORTAL_CODE;
+    }
+
+    /**
+     * @param boolean $XX_PORTAL_CODE
+     */
+    public function setXXPORTALCODE($XX_PORTAL_CODE) {
+        $this->XX_PORTAL_CODE = $XX_PORTAL_CODE;
     }
 
 

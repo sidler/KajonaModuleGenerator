@@ -24,11 +24,18 @@ class ConfigManager {
     public static function updateConfigFromRequest() {
         $objCfg = self::getCurrentConfig();
 
-        if($_POST["updatecfg"] != "") {
+        if(isset($_POST["reset"])) {
+            $objCfg = new BasicConfig();
+            self::$objCurrentConfig = new BasicConfig();
+            self::saveCurrentConfig();
+        }
+
+        if(isset($_POST["updatecfg"]) || isset($_POST["generate"])) {
             $objCfg->setXXAUTHOREMAIL($_POST["module_author"]);
             $objCfg->setXXMODULENAME($_POST["module_name"]);
             $objCfg->setXXMODULENR($_POST["module_nr"]);
             $objCfg->setXXRECORDNAME($_POST["record_name"]);
+            $objCfg->setXXPORTALCODE(isset($_POST["portal_code"]));
 
             $arrProperties = array();
             if(isset($_POST["property_name"])) {

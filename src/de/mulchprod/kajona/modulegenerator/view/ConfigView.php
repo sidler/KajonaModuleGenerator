@@ -25,10 +25,12 @@ class ConfigView {
             $strPropertyList .= $this->getPropertyAsHtml($objProperty, $intCounter);
         }
 
+        $strPortal = $objCfg->isXXPORTALCODE() ? "checked = 'checked'" : "";
+
         //fill all placeholders
         $strContent = str_replace(
-            array("XX_RECORD_NAME", "XX_MODULE_NR", "XX_MODULE_AUTHOR", "XX_MODULE_NAME", "XX_PROPERTY_LIST"),
-            array($objCfg->getXXRECORDNAME(), $objCfg->getXXMODULENR(), $objCfg->getXXAUTHOREMAIL(), $objCfg->getXXMODULENAME(), $strPropertyList),
+            array("XX_RECORD_NAME", "XX_MODULE_NR", "XX_MODULE_AUTHOR", "XX_MODULE_NAME", "XX_PROPERTY_LIST", "XX_PORTAL_CODE"),
+            array($objCfg->getXXRECORDNAME(), $objCfg->getXXMODULENR(), $objCfg->getXXAUTHOREMAIL(), $objCfg->getXXMODULENAME(), $strPropertyList, $strPortal),
             $strContent
         );
 

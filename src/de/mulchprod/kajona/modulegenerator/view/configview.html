@@ -56,13 +56,16 @@
     <div class="formrow"><label for="module_nr">Module Nr</label><input type="text" name="module_nr" id="module_nr" value="XX_MODULE_NR"/></div>
     <div class="formrow"><label for="record_name">Record Name</label><input type="text" name="record_name" id="record_name" value="XX_RECORD_NAME"/></div>
 
+    <div class="formrow"><label for="portal_code">Generate portal code</label><input type="checkbox" name="portal_code" id="portal_code" XX_PORTAL_CODE /></div>
+
     <h2>Record properties</h2>
     <div id="property_list">
         XX_PROPERTY_LIST
     </div>
     <div class="formrow"><input type="button" onclick="ModuleGenerator.addProperty();" value="+ Add property" /></div>
-    <div class="formrow"><input type="submit" value="Generate Module" /></div>
-    <input type="hidden" name="updatecfg" value="true">
+    <div class="formrow"><input type="submit" value="Save temporary" name="updatecfg" /></div>
+    <div class="formrow"><input type="submit" value="Reset all data" name="reset" /></div>
+    <div class="formrow"><input type="submit" value="Generate Module" name="generate" /></div>
 </form>
 
 <div style="display: none;" id="property_template">
