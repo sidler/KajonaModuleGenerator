@@ -15,6 +15,32 @@ class FileHelper {
 
     use LogTrait;
 
+
+    public function deleteEmptyDirs($strPath) {
+
+        $arrContent = array_filter(scandir($strPath), function($strValue) {
+           return $strValue != "." && $strValue != "..";
+        });
+
+        foreach($arrContent as $strOneEntry) {
+            if(is_dir($strPath."/".$strOneEntry)) {
+                $this->deleteEmptyDirs($strPath."/".$strOneEntry);
+            }
+
+            if($strOneEntry == ".DS_Store") {
+                unlink($strPath."/".$strOneEntry);
+            }
+        }
+
+        $arrContent = array_filter(scandir($strPath), function($strValue) {
+            return $strValue != "." && $strValue != "..";
+        });
+
+        if(count($arrContent) == 0) {
+            rmdir($strPath);
+        }
+    }
+
     /**
      * Copies a folder recursive, including all files and folders
      *

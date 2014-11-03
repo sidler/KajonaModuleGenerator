@@ -65,6 +65,9 @@ class GenerationController {
             $objContentWriter->processFile($strOneFile);
         }
 
+        $this->log("Cleaning module...");
+        $objFileHelper->deleteEmptyDirs($this->strDir);
+
         //and generate a zip
         $this->log("Generating ZIP-Archive...");
         $strZipName = "module_".$objCfg->getXXMODULENAME().".zip";

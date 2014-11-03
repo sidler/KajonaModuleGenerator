@@ -13,34 +13,38 @@
 class class_installer_XX_MODULE_NAME extends class_installer_base implements interface_installer_removable {
 
     public function install() {
-		$strReturn = "";
+        $strReturn = "";
         $objSchemamanager = new class_orm_schemamanager();
 
-		$strReturn .= "Installing tables...\n";
+        $strReturn .= "Installing tables...\n";
         $objSchemamanager->createTable("class_module_XX_MODULE_NAME_XX_RECORD_NAME");
 
 
-		//register the module
-		$this->registerModule("XX_MODULE_NAME", _XX_MODULE_NAME_module_id_, "class_module_XX_MODULE_NAME_portalcontroller.php", "class_module_XX_MODULE_NAME_admincontroller.php", $this->objMetadata->getStrVersion(), true);
+        //register the module
+        $this->registerModule("XX_MODULE_NAME", _XX_MODULE_NAME_module_id_, "class_module_XX_MODULE_NAME_portalcontroller.php", "class_module_XX_MODULE_NAME_admincontroller.php", $this->objMetadata->getStrVersion(), true);
 
-       //Register the element
-       $strReturn .= "Registering XX_MODULE_NAME-element...\n";
-       //check, if not already existing
-       $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
-       if($objElement == null) {
-           $objElement = new class_module_pages_element();
-           $objElement->setStrName("XX_MODULE_NAME");
-           $objElement->setStrClassAdmin("class_element_XX_MODULE_NAME_admin.php");
-           $objElement->setStrClassPortal("class_element_XX_MODULE_NAME_portal.php");
-           $objElement->setIntCachetime(3600);
-           $objElement->setIntRepeat(1);
-           $objElement->setStrVersion($this->objMetadata->getStrVersion());
-           $objElement->updateObjectToDb();
-           $strReturn .= "Element registered...\n";
-       }
-       else {
-           $strReturn .= "Element already installed!...\n";
-       }
+
+        XX_PORTAL_ONLY_START
+        //Register the element
+        $strReturn .= "Registering XX_MODULE_NAME-element...\n";
+
+        //check, if not already existing
+        $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
+        if($objElement == null) {
+            $objElement = new class_module_pages_element();
+            $objElement->setStrName("XX_MODULE_NAME");
+            $objElement->setStrClassAdmin("class_element_XX_MODULE_NAME_admin.php");
+            $objElement->setStrClassPortal("class_element_XX_MODULE_NAME_portal.php");
+            $objElement->setIntCachetime(3600);
+            $objElement->setIntRepeat(1);
+            $objElement->setStrVersion($this->objMetadata->getStrVersion());
+            $objElement->updateObjectToDb();
+            $strReturn .= "Element registered...\n";
+        }
+        else {
+            $strReturn .= "Element already installed!...\n";
+        }
+        XX_PORTAL_ONLY_END
 
 
         $strReturn .= "Setting aspect assignments...\n";
@@ -51,9 +55,9 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
         }
 
 
-		return $strReturn;
+        return $strReturn;
 
-	}
+    }
 
     /**
      * Validates whether the current module/element is removable or not.
@@ -75,6 +79,8 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
      * @return bool
      */
     public function remove(&$strReturn) {
+
+        XX_PORTAL_ONLY_START
         //delete the page-element
         $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
         if($objElement != null) {
@@ -85,13 +91,14 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
             $strReturn .= "Error finding page-element 'XX_MODULE_NAME', aborting.\n";
             return false;
         }
+        XX_PORTAL_ONLY_END
 
         //delete all records
         /** @var class_module_XX_MODULE_NAME_XX_RECORD_NAME $objOneRecord */
         foreach(class_module_XX_MODULE_NAME_XX_RECORD_NAME::getObjectList() as $objOneRecord) {
             $strReturn .= "Deleting object '".$objOneRecord->getStrDisplayName()."' ...\n";
             if(!$objOneRecord->deleteObject()) {
-                $strReturn .= "Error deleting category, aborting.\n";
+                $strReturn .= "Error deleting XX_RECORD_NAME, aborting.\n";
                 return false;
             }
         }

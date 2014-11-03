@@ -5,12 +5,8 @@ class BasicConfig {
 
     private $XX_MODULE_NR = 0;
     private $XX_AUTHOR_EMAIL = "demo@kajona.de";
-    private $XX_TEMPLATE_PROPERTY_LIST = "";
-    private $XX_GET_STR_DISPLAYNAME = "";
-    private $XX_RECORD_GETTER_SETTER = "";
     private $XX_MODULE_NAME = "demo";
     private $XX_RECORD_NAME = "record";
-    private $XX_RECORD_PROPERTIES = "";
     private $XX_PORTAL_CODE = true;
 
     /**
@@ -56,7 +52,6 @@ class BasicConfig {
 
 
     private $arrBaseFiles = array(
-        "admin_element_class" => "/admin/elements/class_element_XX_MODULE_NAME_admin.php",
         "admin_controller" => "/admin/class_module_XX_MODULE_NAME_admincontroller.php",
         "installer" => "/installer/class_installer_XX_MODULE_NAME.php",
         "lang_de" => "/lang/module_XX_MODULE_NAME/lang_XX_MODULE_NAME_de.php",
@@ -67,6 +62,7 @@ class BasicConfig {
     );
 
     private $arrPortalFiles = array(
+        "admin_element_class" => "/admin/elements/class_element_XX_MODULE_NAME_admin.php",
         "portal_element_class" => "/portal/elements/class_element_XX_MODULE_NAME_portal.php",
         "portal_controller" => "/portal/class_module_XX_MODULE_NAME_portalcontroller.php",
         "templates_tpl" => "/templates/default/tpl/module_XX_MODULE_NAME/default.tpl"
@@ -109,7 +105,7 @@ class BasicConfig {
      * @param string $XX_MODULE_NAME
      */
     public function setXXMODULENAME($XX_MODULE_NAME) {
-        $this->XX_MODULE_NAME = $XX_MODULE_NAME;
+        $this->XX_MODULE_NAME = strtolower($XX_MODULE_NAME);
     }
 
     /**
@@ -151,7 +147,7 @@ class BasicConfig {
      * @param string $XX_RECORD_NAME
      */
     public function setXXRECORDNAME($XX_RECORD_NAME) {
-        $this->XX_RECORD_NAME = $XX_RECORD_NAME;
+        $this->XX_RECORD_NAME = strtolower($XX_RECORD_NAME);
     }
 
     /**

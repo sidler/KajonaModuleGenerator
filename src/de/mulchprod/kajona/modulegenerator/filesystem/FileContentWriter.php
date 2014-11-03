@@ -34,6 +34,10 @@ class FileContentWriter {
         $strContent = $this->processBasicMapping($strContent);
         $strContent = $this->processProperties($strContent);
 
+        if(!$this->objConfig->isXXPORTALCODE()) {
+            $strContent = $this->removePortalSections($strContent);
+        }
+
         if(file_put_contents($strTargetFile, $strContent) === false) {
             $this->log(" Error saving new contents to file!");
         }
@@ -86,5 +90,25 @@ class FileContentWriter {
         return str_replace(array_keys($arrMapping), array_values($arrMapping), $strContent);
     }
 
+
+    private function removePortalSections($strContent) {
+        $this->log(" ...removing portal-only parts");
+
+        $intStart = strpos($strContent, "XX_PORTAL_ONLY_START");
+        $intEnd = strpos($strContent, "XX_PORTAL_ONLY_END");
+
+        while($intStart !== false && $intEnd !== false) {
+
+            $strContent = substr($strContent, 0, $intStart).substr($strContent, $intEnd+strlen("XX_PORTAL_ONLY_END"));
+
+
+            $intStart = strpos($strContent, "XX_PORTAL_ONLY_START");
+            $intEnd = strpos($strContent, "XX_PORTAL_ONLY_END");
+        }
+
+        return $strContent;
+
+
+    }
 
 }

@@ -121,7 +121,7 @@ class PropertyConfig {
      * @param string $strName
      */
     public function setStrName($strName) {
-        $this->strName = $strName;
+        $this->strName = strtolower($strName);
     }
 
 
