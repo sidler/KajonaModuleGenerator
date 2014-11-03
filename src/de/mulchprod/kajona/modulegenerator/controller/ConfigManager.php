@@ -6,10 +6,12 @@
  * Time: 18:59
  */
 
-namespace de\mulchprod\kajona\modulegenerator\model;
+namespace de\mulchprod\kajona\modulegenerator\controller;
 
 
 
+
+use de\mulchprod\kajona\modulegenerator\model\BasicConfig;
 use de\mulchprod\kajona\modulegenerator\model\PropertyConfig;
 
 class ConfigManager {

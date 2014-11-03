@@ -14,11 +14,9 @@
  * @module XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class class_module_XX_MODULE_NAME_XX_RECORD_NAME extends class_model implements interface_model, interface_sortable_rating, interface_admin_listable {
+class class_module_XX_MODULE_NAME_XX_RECORD_NAME extends class_model implements interface_model, interface_admin_listable {
 
-
-    XX_RECORD_PROPERTIES
-
+XX_RECORD_PROPERTIES
 
     /**
      * Returns the icon the be used in lists.
@@ -56,8 +54,8 @@ class class_module_XX_MODULE_NAME_XX_RECORD_NAME extends class_model implements 
      * @return string
      */
     public function getStrDisplayName() {
-        XX_GET_STR_DISPLAYNAME
+        return uniStrTrim(XX_GET_STR_DISPLAYNAME, 150);
     }
 
-    XX_RECORD_GETTER_SETTER
+XX_RECORD_ACCESSORS
 }

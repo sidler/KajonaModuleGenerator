@@ -30,16 +30,20 @@
             border: 1px solid #ccc;
             margin: 4px;
         }
+
+        #logview {
+            max-height: 400px;
+        }
     </style>
 
     <script type="text/javascript">
         ModuleGenerator = {
             addProperty : function() {
                 var strContent = $("#property_template").clone().html();
-                var intPropertyCount = $("#property_list").length;
+                var intPropertyCount = $("#property_list fieldset").length;
                 var find = '\\[x\\]';
                 var re = new RegExp(find, 'g');
-                strContent = strContent.replace(re, "["+(intPropertyCount+1)+"]");
+                strContent = strContent.replace(re, "["+(intPropertyCount)+"]");
                 $("#property_list").append(strContent);
             }
         };
@@ -75,6 +79,12 @@
         <div class="formrow"><label for="property_mandatory[x]">Mandatory</label><input type="checkbox" name="property_mandatory[x]" id="property_mandatory[x]"/></div>
         <div class="formrow"><label for="property_templateexport[x]">Export to Template</label><input type="checkbox" name="property_templateexport[x]" id="property_templateexport[x]"/></div>
     </fieldset>
+</div>
+
+<div id="logview">
+    <pre>
+XX_LOG_VIEW
+    </pre>
 </div>
 
 </body>

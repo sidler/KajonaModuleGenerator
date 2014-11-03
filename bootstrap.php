@@ -38,6 +38,6 @@ spl_autoload_register(function ($class) {
     }
 });
 
-
+define("BASE_PATH", __DIR__);
 
 session_start();

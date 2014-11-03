@@ -9,7 +9,8 @@
 namespace de\mulchprod\kajona\modulegenerator\view;
 
 
-use de\mulchprod\kajona\modulegenerator\model\ConfigManager;
+use de\mulchprod\kajona\modulegenerator\controller\ConfigManager;
+use de\mulchprod\kajona\modulegenerator\logger\Logger;
 use de\mulchprod\kajona\modulegenerator\model\PropertyConfig;
 
 class ConfigView {
@@ -29,8 +30,8 @@ class ConfigView {
 
         //fill all placeholders
         $strContent = str_replace(
-            array("XX_RECORD_NAME", "XX_MODULE_NR", "XX_MODULE_AUTHOR", "XX_MODULE_NAME", "XX_PROPERTY_LIST", "XX_PORTAL_CODE"),
-            array($objCfg->getXXRECORDNAME(), $objCfg->getXXMODULENR(), $objCfg->getXXAUTHOREMAIL(), $objCfg->getXXMODULENAME(), $strPropertyList, $strPortal),
+            array("XX_RECORD_NAME", "XX_MODULE_NR", "XX_MODULE_AUTHOR", "XX_MODULE_NAME", "XX_PROPERTY_LIST", "XX_PORTAL_CODE", "XX_LOG_VIEW"),
+            array($objCfg->getXXRECORDNAME(), $objCfg->getXXMODULENR(), $objCfg->getXXAUTHOREMAIL(), $objCfg->getXXMODULENAME(), $strPropertyList, $strPortal, Logger::getInstance()->getLog()),
             $strContent
         );
 

@@ -87,8 +87,8 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
         }
 
         //delete all records
-        /** @var class_module_skeleton_record $objOneRecord */
-        foreach(class_module_skeleton_record::getObjectList() as $objOneRecord) {
+        /** @var class_module_XX_MODULE_NAME_XX_RECORD_NAME $objOneRecord */
+        foreach(class_module_XX_MODULE_NAME_XX_RECORD_NAME::getObjectList() as $objOneRecord) {
             $strReturn .= "Deleting object '".$objOneRecord->getStrDisplayName()."' ...\n";
             if(!$objOneRecord->deleteObject()) {
                 $strReturn .= "Error deleting category, aborting.\n";

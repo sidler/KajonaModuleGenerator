@@ -7,12 +7,12 @@
 /**
  * Portal-class of the XX_MODULE_NAME module.
  *
- * @package module_skeleton
+ * @package module_XX_MODULE_NAME
  * @author XX_AUTHOR_EMAIL
  * @module XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class class_module_skeleton_portalcontroller extends class_portal_controller implements interface_portal {
+class class_module_XX_MODULE_NAME_portalcontroller extends class_portal_controller implements interface_portal {
 
 
     /**

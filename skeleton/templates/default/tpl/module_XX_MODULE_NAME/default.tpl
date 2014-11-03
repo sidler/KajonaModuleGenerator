@@ -2,7 +2,7 @@
 
 <XX_MODULE_NAME_list>
     <div class="XX_MODULE_NAMEList">
-        <br />%%XX_MODULE_NAME_records%%
+        %%XX_MODULE_NAME_records%%
     </div>
 </XX_MODULE_NAME_list>
 

@@ -63,13 +63,13 @@ class BasicConfig {
         "lang_en" => "/lang/module_XX_MODULE_NAME/lang_XX_MODULE_NAME_en.php",
         "system_config_moduleid" => "/system/config/module_XX_MODULE_NAME_id.php",
         "system_record" => "/system/class_module_XX_MODULE_NAME_XX_RECORD_NAME.php",
-        "metadata" => "metadata.xml"
+        "metadata" => "/metadata.xml"
     );
 
     private $arrPortalFiles = array(
         "portal_element_class" => "/portal/elements/class_element_XX_MODULE_NAME_portal.php",
         "portal_controller" => "/portal/class_module_XX_MODULE_NAME_portalcontroller.php",
-        "templates_tpl/default" => "/templates/default/tpl/module_XX_MODULE_NAME/default.tpl"
+        "templates_tpl" => "/templates/default/tpl/module_XX_MODULE_NAME/default.tpl"
     );
 
 
@@ -81,6 +81,22 @@ class BasicConfig {
             "XX_RECORD_NAME" => $this->XX_RECORD_NAME
         );
     }
+
+    /**
+     * @return array
+     */
+    public function getArrBaseFiles() {
+        return $this->arrBaseFiles;
+    }
+
+    /**
+     * @return array
+     */
+    public function getArrPortalFiles() {
+        return $this->arrPortalFiles;
+    }
+
+
 
     /**
      * @return string
