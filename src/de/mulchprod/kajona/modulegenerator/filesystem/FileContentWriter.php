@@ -37,6 +37,9 @@ class FileContentWriter {
         if(!$this->objConfig->isXXPORTALCODE()) {
             $strContent = $this->removePortalSections($strContent);
         }
+        else {
+            $strContent = str_replace(array("XX_PORTAL_ONLY_START", "XX_PORTAL_ONLY_END"), array("", ""), $strContent);
+        }
 
         if(file_put_contents($strTargetFile, $strContent) === false) {
             $this->log(" Error saving new contents to file!");
