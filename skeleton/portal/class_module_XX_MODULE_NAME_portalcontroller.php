@@ -43,7 +43,7 @@ class class_module_XX_MODULE_NAME_portalcontroller extends class_portal_controll
                 "pe_action_delete"        => "delete",
                 "pe_action_delete_params" => "&systemid=".$objOneRecord->getSystemid()
             );
-            $strOneRecord .= class_element_portal::addPortalEditorCode($strOneRecord, $objOneRecord->getSystemid(), $arrPeConfig);
+            $strOneRecord = class_element_portal::addPortalEditorCode($strOneRecord, $objOneRecord->getSystemid(), $arrPeConfig);
             $strEntries .= $strOneRecord;
         }
 
