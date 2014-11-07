@@ -25,12 +25,8 @@ class BasicConfig {
         return array(
             "XX_MODULE_NR",
             "XX_AUTHOR_EMAIL",
-            "XX_TEMPLATE_PROPERTY_LIST",
-            "XX_GET_STR_DISPLAYNAME",
-            "XX_RECORD_GETTER_SETTER",
             "XX_MODULE_NAME",
             "XX_RECORD_NAME",
-            "XX_RECORD_PROPERTIES",
             "XX_PORTAL_CODE",
             "arrSerializedProperties"
         );
