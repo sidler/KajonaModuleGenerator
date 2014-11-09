@@ -17,7 +17,7 @@ class Zip {
 
     public function zipDirectory($strSourceDir, $strTargetZip) {
         $objArchive = new \ZipArchive();
-        if(!$objArchive->open($strTargetZip, ZIPARCHIVE::OVERWRITE)) {
+        if(!$objArchive->open($strTargetZip, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE)) {
             $this->log("failed to open zip-file for writing at ".$strTargetZip);
         }
 
