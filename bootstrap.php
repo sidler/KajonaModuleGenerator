@@ -40,4 +40,8 @@ spl_autoload_register(function ($class) {
 
 define("BASE_PATH", __DIR__);
 
+//create the output folder by default
+if(!is_dir(BASE_PATH."/output"))
+    mkdir(BASE_PATH."/output");
+
 session_start();
