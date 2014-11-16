@@ -47,7 +47,8 @@ class ConfigManager {
                     $objProp->setBitMandatory(isset($_POST["property_mandatory"][$intKey]));
                     $objProp->setBitIndexable(isset($_POST["property_indexable"][$intKey]));
                     $objProp->setBitTemplateExport(isset($_POST["property_templateexport"][$intKey]));
-
+                    $objProp->setStrDatatype($_POST["property_datatype"][$intKey]);
+                    $objProp->setStrFieldtype($_POST["property_fieldtype"][$intKey]);
                     $arrProperties[] = $objProp;
                 }
             }

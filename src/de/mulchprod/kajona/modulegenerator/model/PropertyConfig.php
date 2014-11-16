@@ -9,16 +9,20 @@ class PropertyConfig {
     private $bitIndexable = false;
     private $bitMandatory = false;
     private $bitTemplateExport = false;
+    private $strDatatype = "text";
+    private $strFieldType = "text";
 
 
     public function getAsPropertyDefinition() {
 
+        $strColName = ConfigManager::getCurrentConfig()->getXXMODULENAME()."_".ConfigManager::getCurrentConfig()->getXXRECORDNAME().".".ConfigManager::getCurrentConfig()->getXXRECORDNAME()."_".$this->getStrName();
+
         $strReturn  = "\n";
         $strReturn .= "    /**\n";
         $strReturn .= "     * @var string\n";
-        $strReturn .= "     * @tableColumn ".ConfigManager::getCurrentConfig()->getXXMODULENAME()."_".ConfigManager::getCurrentConfig()->getXXRECORDNAME().".".ConfigManager::getCurrentConfig()->getXXRECORDNAME()."_".$this->getStrName()."\n";
-        $strReturn .= "     * @tableColumnDatatype text\n";
-        $strReturn .= "     * @fieldType text\n";
+        $strReturn .= "     * @tableColumn ".strtolower($strColName)."\n";
+        $strReturn .= "     * @tableColumnDatatype ".$this->strDatatype."\n";
+        $strReturn .= "     * @fieldType ".$this->strFieldType."\n";
 
         if($this->isBitMandatory())
             $strReturn .= "     * @fieldMandatory\n";
@@ -65,7 +69,19 @@ class PropertyConfig {
     }
 
     public function getPropertyVariableName() {
-        return "str".ucfirst($this->getStrName());
+        //build the prefix
+        $strPrefix = "str";
+
+        if($this->getStrDatatype() == "int")
+            $strPrefix = "int";
+
+        if($this->getStrDatatype() == "long")
+            $strPrefix = "long";
+
+        if($this->getStrDatatype() == "double")
+            $strPrefix = "float";
+
+        return $strPrefix.ucfirst($this->getStrName());
     }
 
     /**
@@ -121,8 +137,38 @@ class PropertyConfig {
      * @param string $strName
      */
     public function setStrName($strName) {
-        $this->strName = strtolower($strName);
+        $this->strName = $strName;
     }
+
+    /**
+     * @return string
+     */
+    public function getStrDatatype() {
+        return $this->strDatatype;
+    }
+
+    /**
+     * @param string $strDatatype
+     */
+    public function setStrDatatype($strDatatype) {
+        $this->strDatatype = $strDatatype;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStrFieldType() {
+        return $this->strFieldType;
+    }
+
+    /**
+     * @param string $strFieldType
+     */
+    public function setStrFieldType($strFieldType) {
+        $this->strFieldType = $strFieldType;
+    }
+
+
 
 
 
