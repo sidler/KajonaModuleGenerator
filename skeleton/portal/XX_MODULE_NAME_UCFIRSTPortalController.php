@@ -13,6 +13,7 @@ use Kajona\System\Portal\PortalController;
 use Kajona\System\Portal\PortalInterface;
 use Kajona\System\System\Link;
 use Kajona\System\System\TemplateMapper;
+use Kajona\XX_MODULE_NAME_UCFIRST\System\XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME;
 
 
 /**

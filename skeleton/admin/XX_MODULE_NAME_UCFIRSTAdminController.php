@@ -6,7 +6,7 @@
 
 namespace Kajona\XX_MODULE_NAME_UCFIRST\Admin;
 
-use Kajona\System\Admin\AdminEventsimpler;
+use Kajona\System\Admin\AdminEvensimpler;
 use Kajona\System\Admin\AdminInterface;
 use Kajona\System\System\Link;
 use Kajona\System\System\ModelInterface;
@@ -17,9 +17,9 @@ use Kajona\System\System\ModelInterface;
  *
  * @author XX_AUTHOR_EMAIL
  *
- * @objectList XX_MODULE_NAME_UCFIRSTRECORD_NAME
- * @objectEdit XX_MODULE_NAME_UCFIRSTRECORD_NAME
- * @objectNew  XX_MODULE_NAME_UCFIRSTRECORD_NAME
+ * @objectList Kajona\XX_MODULE_NAME_UCFIRST\System\XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME
+ * @objectEdit Kajona\XX_MODULE_NAME_UCFIRST\System\XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME
+ * @objectNew  Kajona\XX_MODULE_NAME_UCFIRST\System\XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME
  *
  * @autoTestable list,new
  *

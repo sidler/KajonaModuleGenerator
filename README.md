@@ -11,4 +11,4 @@ Enjoy the ugly interface and add some information, such as the modules name and 
 Setup all properties for the record and "Generate" to let the magic happen.
 
 Download the generated zip-file and give it a try: Install the package into an existing Kajona installation via Kajonas internal
-package-management (requires at least Kajona 4.6).
+package-management (requires at least Kajona 5.0).

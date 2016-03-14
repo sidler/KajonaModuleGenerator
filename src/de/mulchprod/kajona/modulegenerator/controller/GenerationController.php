@@ -14,6 +14,7 @@ use de\mulchprod\kajona\modulegenerator\filesystem\FileContentWriter;
 use de\mulchprod\kajona\modulegenerator\filesystem\FileHelper;
 use de\mulchprod\kajona\modulegenerator\filesystem\FileNameWriter;
 use de\mulchprod\kajona\modulegenerator\logger\LogTrait;
+use de\mulchprod\kajona\modulegenerator\phar\Phar;
 use de\mulchprod\kajona\modulegenerator\zip\Zip;
 
 class GenerationController {
@@ -69,13 +70,13 @@ class GenerationController {
         $objFileHelper->deleteEmptyDirs($this->strDir);
 
         //and generate a zip
-        $this->log("Generating ZIP-Archive...");
-        $strZipName = "module_".$objCfg->getXXMODULENAME().".zip";
-        $objZip = new Zip();
-        $objZip->zipDirectory($this->strDir, BASE_PATH."/output/".$strZipName);
-        $this->log("created zip-file at ".BASE_PATH."/output/".$strZipName);
+        $this->log("Generating PHAR-Archive...");
+        $strPharName = "module_".$objCfg->getXXMODULENAME().".phar";
+        $objZip = new Phar();
+        $objZip->generatePhar($this->strDir, BASE_PATH."/output/".$strPharName);
+        $this->log("created phar-file at ".BASE_PATH."/output/".$strPharName);
 
-        $this->log("direct download: <a href='http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME'])."/output/".$strZipName."'>".$strZipName."</a>");
+        $this->log("direct download: <a href='http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME'])."/output/".$strPharName."'>".$strPharName."</a>");
         $this->log("");
     }
 

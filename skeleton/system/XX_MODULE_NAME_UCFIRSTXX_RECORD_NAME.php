@@ -14,7 +14,7 @@ use Kajona\System\System\ModelInterface;
  * Model for a XX_MODULE_NAME record object itself
  *
  * @author XX_AUTHOR_EMAIL
- * @targetTable XX_MODULE_NAME_XX_RECORD_NAME_LOWER.XX_RECORD_NAME_id
+ * @targetTable XX_MODULE_NAME_XX_RECORD_NAME_LOWER.XX_RECORD_NAME_LOWER_id
  *
  * @module XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_

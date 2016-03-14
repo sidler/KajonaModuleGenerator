@@ -56,11 +56,13 @@ class PropertyConfig {
 
     public function getAsAccessors() {
         $strReturn  = "\n";
-        $strReturn .= "    public function get".ucfirst($this->getPropertyVariableName())."() {\n";
+        $strReturn .= "    public function get".ucfirst($this->getPropertyVariableName())."()\n";
+        $strReturn .= "    {\n";
         $strReturn .= "        return \$this->".$this->getPropertyVariableName().";\n";
         $strReturn .= "    }\n";
         $strReturn .= "\n";
-        $strReturn .= "    public function set".ucfirst($this->getPropertyVariableName())."(\$".$this->getPropertyVariableName().") {\n";
+        $strReturn .= "    public function set".ucfirst($this->getPropertyVariableName())."(\$".$this->getPropertyVariableName().")\n";
+        $strReturn .= "    {\n";
         $strReturn .= "        \$this->".$this->getPropertyVariableName()." = \$".$this->getPropertyVariableName().";\n";
         $strReturn .= "    }\n";
         $strReturn .= "\n";

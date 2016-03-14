@@ -12,7 +12,7 @@ use Kajona\System\System\InstallerRemovableInterface;
 use Kajona\System\System\OrmSchemamanager;
 use Kajona\System\System\SystemAspect;
 use Kajona\System\System\SystemModule;
-use Kajona\System\System\SystemSetting;
+use Kajona\XX_MODULE_NAME_UCFIRST\System\XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME;
 
 
 /**
@@ -109,10 +109,10 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
         XX_PORTAL_ONLY_END
 
         //delete all records
-        /** @var class_module_XX_MODULE_NAME_XX_RECORD_NAME $objOneRecord */
-        foreach (class_module_XX_MODULE_NAME_XX_RECORD_NAME::getObjectList() as $objOneRecord) {
+        /** @var XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME $objOneRecord */
+        foreach (XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME::getObjectList() as $objOneRecord) {
             $strReturn .= "Deleting object '".$objOneRecord->getStrDisplayName()."' ...\n";
-            if (!$objOneRecord->deleteObject()) {
+            if (!$objOneRecord->deleteObjectFromDatabase()) {
                 $strReturn .= "Error deleting XX_RECORD_NAME, aborting.\n";
                 return false;
             }
