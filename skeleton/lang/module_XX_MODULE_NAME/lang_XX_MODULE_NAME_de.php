@@ -1,14 +1,10 @@
 <?php
 /*"******************************************************************************************************
-*   (c) 2004-2006 by MulchProductions, www.mulchprod.de                                                 *
-*   (c) 2007-2014 by Kajona, www.kajona.de                                                              *
-*       Published under the GNU LGPL v2.1, see /system/licence_lgpl.txt                                 *
-*-------------------------------------------------------------------------------------------------------*
-*	$Id$					    *
+*   (c) 2007-2016 by Kajona, www.kajona.de                                                              *
+*       Published under the GNU LGPL v2.1, see https://github.com/kajona/kajonacms/blob/master/LICENCE  *
 ********************************************************************************************************/
-//Edited with Kajona Language Editor GUI, see www.kajona.de and www.mulchprod.de for more information
-//Kajona Language Editor Core Build 385
+
 
 //editable entries
-$lang["modul_titel"]                     = "XX_MODULE_NAME";
+$lang["modul_titel"]                     = "XX_MODULE_NAME_UCFIRST";
 XX_PROPERTY_LABELS

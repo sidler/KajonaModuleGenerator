@@ -70,7 +70,9 @@ class BasicConfig {
             "XX_MODULE_NR" => $this->XX_MODULE_NR,
             "XX_AUTHOR_EMAIL" => $this->XX_AUTHOR_EMAIL,
             "XX_MODULE_NAME" => $this->XX_MODULE_NAME,
-            "XX_RECORD_NAME" => $this->XX_RECORD_NAME
+            "XX_MODULE_NAME_UCFIRST" => ucfirst($this->XX_MODULE_NAME),
+            "XX_RECORD_NAME" => ucfirst($this->XX_RECORD_NAME),
+            "XX_RECORD_NAME_LOWER" => strtolower($this->XX_RECORD_NAME)
         );
     }
 

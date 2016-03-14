@@ -1,20 +1,25 @@
 <?php
 /*"******************************************************************************************************
-*   (c) 2007-2014 by Kajona, www.kajona.de                                                              *
-*       Published under the GNU LGPL v2.1, see /system/licence_lgpl.txt                                 *
+*   (c) 2007-2016 by Kajona, www.kajona.de                                                              *
+*       Published under the GNU LGPL v2.1, see https://github.com/kajona/kajonacms/blob/master/LICENCE  *
 ********************************************************************************************************/
+
+namespace Kajona\XX_MODULE_NAME_UCFIRST\System;
+
+use Kajona\System\System\Model;
+use Kajona\System\System\ModelInterface;
+use Kajona\System\System\AdminListableInterface;
 
 /**
  * Model for a XX_MODULE_NAME record object itself
  *
- * @package module_XX_MODULE_NAME
  * @author XX_AUTHOR_EMAIL
- * @targetTable XX_MODULE_NAME_XX_RECORD_NAME.XX_RECORD_NAME_id
+ * @targetTable XX_MODULE_NAME_XX_RECORD_NAME_LOWER.XX_RECORD_NAME_id
  *
  * @module XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class class_module_XX_MODULE_NAME_XX_RECORD_NAME extends class_model implements interface_model, interface_admin_listable {
+class XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME extends Model implements ModelInterface, AdminListableInterface {
 
 XX_RECORD_PROPERTIES
 

@@ -1,8 +1,19 @@
 <?php
 /*"******************************************************************************************************
-*   (c) 2007-2014 by Kajona, www.kajona.de                                                              *
-*       Published under the GNU LGPL v2.1, see /system/licence_lgpl.txt                                 *
+*   (c) 2007-2016 by Kajona, www.kajona.de                                                              *
+*       Published under the GNU LGPL v2.1, see https://github.com/kajona/kajonacms/blob/master/LICENCE  *
 ********************************************************************************************************/
+
+namespace Kajona\XX_MODULE_NAME_UCFIRST\Installer;
+
+use Kajona\System\System\InstallerBase;
+use Kajona\System\System\InstallerRemovableInterface;
+use Kajona\System\System\OrmSchemamanager;
+use Kajona\System\System\SystemAspect;
+use Kajona\System\System\SystemModule;
+use Kajona\System\System\SystemSetting;
+use Kajona\Pages\System\PagesElement;
+
 
 /**
  * Class providing an installer for the XX_MODULE_NAME module
@@ -10,18 +21,18 @@
  * @package module_XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class class_installer_XX_MODULE_NAME extends class_installer_base implements interface_installer_removable {
+class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements InstallerRemovableInterface {
 
     public function install() {
         $strReturn = "";
-        $objSchemamanager = new class_orm_schemamanager();
+        $objSchemamanager = new OrmSchemamanager();
 
         $strReturn .= "Installing tables...\n";
-        $objSchemamanager->createTable("class_module_XX_MODULE_NAME_XX_RECORD_NAME");
+        $objSchemamanager->createTable("XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME");
 
 
         //register the module
-        $this->registerModule("XX_MODULE_NAME", _XX_MODULE_NAME_module_id_, "class_module_XX_MODULE_NAME_portalcontroller.php", "class_module_XX_MODULE_NAME_admincontroller.php", $this->objMetadata->getStrVersion(), true);
+        $this->registerModule("XX_MODULE_NAME", _XX_MODULE_NAME_module_id_, "XX_MODULE_NAME_UCFIRSTPortalController.php", "XX_MODULE_NAME_UCFIRSTAdminController.php", $this->objMetadata->getStrVersion(), true);
 
 
         XX_PORTAL_ONLY_START
@@ -29,12 +40,12 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
         $strReturn .= "Registering XX_MODULE_NAME-element...\n";
 
         //check, if not already existing
-        $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
+        $objElement = PagesElement::getElement("XX_MODULE_NAME");
         if($objElement == null) {
-            $objElement = new class_module_pages_element();
+            $objElement = new PagesElement();
             $objElement->setStrName("XX_MODULE_NAME");
-            $objElement->setStrClassAdmin("class_element_XX_MODULE_NAME_admin.php");
-            $objElement->setStrClassPortal("class_element_XX_MODULE_NAME_portal.php");
+            $objElement->setStrClassAdmin("ElementXX_MODULE_NAME_UCFIRSTAdmin.php");
+            $objElement->setStrClassPortal("ElementXX_MODULE_NAME_UCFIRSTPortal.php");
             $objElement->setIntCachetime(3600);
             $objElement->setIntRepeat(1);
             $objElement->setStrVersion($this->objMetadata->getStrVersion());
@@ -48,9 +59,9 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
 
 
         $strReturn .= "Setting aspect assignments...\n";
-        if(class_module_system_aspect::getAspectByName("content") != null) {
-            $objModule = class_module_system_module::getModuleByName($this->objMetadata->getStrTitle());
-            $objModule->setStrAspect(class_module_system_aspect::getAspectByName("content")->getSystemid());
+        if(SystemAspect::getAspectByName("content") != null) {
+            $objModule = SystemModule::getModuleByName($this->objMetadata->getStrTitle());
+            $objModule->setStrAspect(SystemAspect::getAspectByName("content")->getSystemid());
             $objModule->updateObjectToDb();
         }
 
@@ -82,7 +93,7 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
 
         XX_PORTAL_ONLY_START
         //delete the page-element
-        $objElement = class_module_pages_element::getElement("XX_MODULE_NAME");
+        $objElement = PagesElement::getElement("XX_MODULE_NAME");
         if($objElement != null) {
             $strReturn .= "Deleting page-element 'XX_MODULE_NAME'...\n";
             $objElement->deleteObject();
@@ -105,7 +116,7 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
 
         //delete the module-node
         $strReturn .= "Deleting the module-registration...\n";
-        $objModule = class_module_system_module::getModuleByName($this->objMetadata->getStrTitle(), true);
+        $objModule = SystemModule::getModuleByName($this->objMetadata->getStrTitle(), true);
         if(!$objModule->deleteObject()) {
             $strReturn .= "Error deleting module, aborting.\n";
             return false;
@@ -128,7 +139,7 @@ class class_installer_XX_MODULE_NAME extends class_installer_base implements int
 	public function update() {
 	    $strReturn = "";
         //check installed version and to which version we can update
-        $arrModule = class_module_system_module::getPlainModuleData($this->objMetadata->getStrTitle(), false);
+        $arrModule = SystemModule::getPlainModuleData($this->objMetadata->getStrTitle(), false);
 
         $strReturn .= "Version found:\n\t Module: ".$arrModule["module_name"].", Version: ".$arrModule["module_version"]."\n\n";
 

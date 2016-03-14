@@ -1,18 +1,22 @@
 <?php
 /*"******************************************************************************************************
-*   (c) 2007-2014 by Kajona, www.kajona.de                                                              *
-*       Published under the GNU LGPL v2.1, see /system/licence_lgpl.txt                                 *
+*   (c) 2007-2016 by Kajona, www.kajona.de                                                              *
+*       Published under the GNU LGPL v2.1, see https://github.com/kajona/kajonacms/blob/master/LICENCE  *
 ********************************************************************************************************/
+
+namespace Kajona\XX_MODULE_NAME_UCFIRST\Admin\Elements;
+
+use Kajona\Pages\Admin\AdminElementInterface;
+use Kajona\Pages\Admin\ElementAdmin;
 
 /**
  * Class representing the admin-part of the XX_MODULE_NAME element
  *
- * @package module_XX_MODULE_NAME
  * @author XX_AUTHOR_EMAIL
  *
  * @targetTable element_universal.content_id
  */
-class class_element_XX_MODULE_NAME_admin extends class_element_admin implements interface_admin_element {
+class ElementXX_MODULE_NAME_UCFIRSTAdmin extends ElementAdmin implements AdminElementInterface {
 
     /**
      * @var string
