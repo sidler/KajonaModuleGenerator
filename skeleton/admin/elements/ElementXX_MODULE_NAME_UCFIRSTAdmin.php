@@ -23,7 +23,7 @@ class ElementXX_MODULE_NAME_UCFIRSTAdmin extends ElementAdmin implements AdminEl
      * @var string
      * @tableColumn element_universal.char1
      *
-     * @fieldType template
+     * @fieldType Kajona\Pages\Admin\Formentries\FormentryTemplate
      * @fieldLabel template
      *
      * @fieldTemplateDir /module_XX_MODULE_NAME

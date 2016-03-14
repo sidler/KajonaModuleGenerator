@@ -30,7 +30,7 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
         $objSchemamanager = new OrmSchemamanager();
 
         $strReturn .= "Installing tables...\n";
-        $objSchemamanager->createTable("XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME");
+        $objSchemamanager->createTable('Kajona\XX_MODULE_NAME_UCFIRST\System\XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME');
 
 
         //register the module
