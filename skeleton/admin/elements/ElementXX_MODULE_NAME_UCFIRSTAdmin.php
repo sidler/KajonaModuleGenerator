@@ -16,7 +16,8 @@ use Kajona\Pages\Admin\ElementAdmin;
  *
  * @targetTable element_universal.content_id
  */
-class ElementXX_MODULE_NAME_UCFIRSTAdmin extends ElementAdmin implements AdminElementInterface {
+class ElementXX_MODULE_NAME_UCFIRSTAdmin extends ElementAdmin implements AdminElementInterface
+{
 
     /**
      * @var string
@@ -30,18 +31,19 @@ class ElementXX_MODULE_NAME_UCFIRSTAdmin extends ElementAdmin implements AdminEl
     private $strTemplate;
 
 
-
     /**
      * @param string $strTemplate
      */
-    public function setStrTemplate($strTemplate) {
+    public function setStrTemplate($strTemplate)
+    {
         $this->strTemplate = $strTemplate;
     }
 
     /**
      * @return string
      */
-    public function getStrTemplate() {
+    public function getStrTemplate()
+    {
         return $this->strTemplate;
     }
 

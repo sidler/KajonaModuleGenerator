@@ -6,13 +6,13 @@
 
 namespace Kajona\XX_MODULE_NAME_UCFIRST\Installer;
 
+use Kajona\Pages\System\PagesElement;
 use Kajona\System\System\InstallerBase;
 use Kajona\System\System\InstallerRemovableInterface;
 use Kajona\System\System\OrmSchemamanager;
 use Kajona\System\System\SystemAspect;
 use Kajona\System\System\SystemModule;
 use Kajona\System\System\SystemSetting;
-use Kajona\Pages\System\PagesElement;
 
 
 /**
@@ -21,9 +21,11 @@ use Kajona\Pages\System\PagesElement;
  * @package module_XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements InstallerRemovableInterface {
+class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements InstallerRemovableInterface
+{
 
-    public function install() {
+    public function install()
+    {
         $strReturn = "";
         $objSchemamanager = new OrmSchemamanager();
 
@@ -41,7 +43,7 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
 
         //check, if not already existing
         $objElement = PagesElement::getElement("XX_MODULE_NAME");
-        if($objElement == null) {
+        if ($objElement == null) {
             $objElement = new PagesElement();
             $objElement->setStrName("XX_MODULE_NAME");
             $objElement->setStrClassAdmin("ElementXX_MODULE_NAME_UCFIRSTAdmin.php");
@@ -59,7 +61,7 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
 
 
         $strReturn .= "Setting aspect assignments...\n";
-        if(SystemAspect::getAspectByName("content") != null) {
+        if (SystemAspect::getAspectByName("content") != null) {
             $objModule = SystemModule::getModuleByName($this->objMetadata->getStrTitle());
             $objModule->setStrAspect(SystemAspect::getAspectByName("content")->getSystemid());
             $objModule->updateObjectToDb();
@@ -77,7 +79,8 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
      *
      * @return bool
      */
-    public function isRemovable() {
+    public function isRemovable()
+    {
         return true;
     }
 
@@ -89,12 +92,13 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
      *
      * @return bool
      */
-    public function remove(&$strReturn) {
+    public function remove(&$strReturn)
+    {
 
         XX_PORTAL_ONLY_START
         //delete the page-element
         $objElement = PagesElement::getElement("XX_MODULE_NAME");
-        if($objElement != null) {
+        if ($objElement != null) {
             $strReturn .= "Deleting page-element 'XX_MODULE_NAME'...\n";
             $objElement->deleteObject();
         }
@@ -106,9 +110,9 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
 
         //delete all records
         /** @var class_module_XX_MODULE_NAME_XX_RECORD_NAME $objOneRecord */
-        foreach(class_module_XX_MODULE_NAME_XX_RECORD_NAME::getObjectList() as $objOneRecord) {
+        foreach (class_module_XX_MODULE_NAME_XX_RECORD_NAME::getObjectList() as $objOneRecord) {
             $strReturn .= "Deleting object '".$objOneRecord->getStrDisplayName()."' ...\n";
-            if(!$objOneRecord->deleteObject()) {
+            if (!$objOneRecord->deleteObject()) {
                 $strReturn .= "Error deleting XX_RECORD_NAME, aborting.\n";
                 return false;
             }
@@ -117,15 +121,15 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
         //delete the module-node
         $strReturn .= "Deleting the module-registration...\n";
         $objModule = SystemModule::getModuleByName($this->objMetadata->getStrTitle(), true);
-        if(!$objModule->deleteObject()) {
+        if (!$objModule->deleteObject()) {
             $strReturn .= "Error deleting module, aborting.\n";
             return false;
         }
 
         //delete the tables
-        foreach(array("XX_MODULE_NAME_XX_RECORD_NAME") as $strOneTable) {
+        foreach (array("XX_MODULE_NAME_XX_RECORD_NAME") as $strOneTable) {
             $strReturn .= "Dropping table ".$strOneTable."...\n";
-            if(!$this->objDB->_pQuery("DROP TABLE ".$this->objDB->encloseTableName(_dbprefix_.$strOneTable)."", array())) {
+            if (!$this->objDB->_pQuery("DROP TABLE ".$this->objDB->encloseTableName(_dbprefix_.$strOneTable)."", array())) {
                 $strReturn .= "Error deleting table, aborting.\n";
                 return false;
             }
@@ -136,8 +140,9 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
     }
 
 
-	public function update() {
-	    $strReturn = "";
+    public function update()
+    {
+        $strReturn = "";
         //check installed version and to which version we can update
         $arrModule = SystemModule::getPlainModuleData($this->objMetadata->getStrTitle(), false);
 
@@ -145,10 +150,7 @@ class InstallerXX_MODULE_NAME_UCFIRST extends InstallerBase implements Installer
 
 
         return $strReturn."\n\n";
-	}
-
-
-
+    }
 
 
 }

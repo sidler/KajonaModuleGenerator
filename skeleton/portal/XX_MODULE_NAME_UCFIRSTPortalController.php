@@ -6,13 +6,13 @@
 
 namespace Kajona\XX_MODULE_NAME_UCFIRST\Portal;
 
-use Kajona\System\Portal\PortalController;
-use Kajona\System\Portal\PortalInterface;
-use Kajona\System\System\TemplateMapper;
-use Kajona\System\System\Link;
 use Kajona\Pages\Portal\PagesPortaleditor;
 use Kajona\Pages\System\PagesPortaleditorActionEnum;
 use Kajona\Pages\System\PagesPortaleditorSystemidAction;
+use Kajona\System\Portal\PortalController;
+use Kajona\System\Portal\PortalInterface;
+use Kajona\System\System\Link;
+use Kajona\System\System\TemplateMapper;
 
 
 /**
@@ -23,7 +23,8 @@ use Kajona\Pages\System\PagesPortaleditorSystemidAction;
  * @module XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class XX_MODULE_NAME_UCFIRSTPortalController extends PortalController implements PortalInterface {
+class XX_MODULE_NAME_UCFIRSTPortalController extends PortalController implements PortalInterface
+{
 
 
     /**
@@ -32,14 +33,16 @@ class XX_MODULE_NAME_UCFIRSTPortalController extends PortalController implements
      * @permissions view
      * @return string
      */
-    protected function actionList() {
+    protected function actionList()
+    {
         $strReturn = "";
 
         $strEntries = "";
         //Check rights
-        foreach(XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME::getObjectList() as $objOneRecord) {
-            if(!$objOneRecord->rightView()|| $objOneRecord->getIntRecordStatus() == 0)
+        foreach (XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME::getObjectList() as $objOneRecord) {
+            if (!$objOneRecord->rightView() || $objOneRecord->getIntRecordStatus() == 0) {
                 continue;
+            }
 
             $objMapper = new TemplateMapper($objOneRecord);
             $strEntries .= $objMapper->writeToTemplate("/module_".$this->getArrModule("modul")."/".$this->arrElementData["char1"], "XX_MODULE_NAME_record", false);

@@ -18,7 +18,8 @@ use Kajona\System\System\SystemModule;
  * @author XX_AUTHOR_EMAIL
  * @targetTable element_universal.content_id
  */
-class ElementXX_MODULE_NAME_UCFIRSTPortal extends ElementPortal implements PortalElementInterface {
+class ElementXX_MODULE_NAME_UCFIRSTPortal extends ElementPortal implements PortalElementInterface
+{
 
 
     /**
@@ -26,11 +27,12 @@ class ElementXX_MODULE_NAME_UCFIRSTPortal extends ElementPortal implements Porta
      *
      * @return string
      */
-    public function loadData() {
+    public function loadData()
+    {
         $strReturn = "";
         //Load the data
         $objModuleController = SystemModule::getModuleByName("XX_MODULE_NAME");
-        if($objModuleController != null) {
+        if ($objModuleController != null) {
             $objPortalController = $objModuleController->getPortalInstanceOfConcreteModule($this->arrElementData);
             $strReturn = $objPortalController->action();
         }

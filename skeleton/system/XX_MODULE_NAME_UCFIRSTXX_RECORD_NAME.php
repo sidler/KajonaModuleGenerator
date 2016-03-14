@@ -6,9 +6,9 @@
 
 namespace Kajona\XX_MODULE_NAME_UCFIRST\System;
 
+use Kajona\System\System\AdminListableInterface;
 use Kajona\System\System\Model;
 use Kajona\System\System\ModelInterface;
-use Kajona\System\System\AdminListableInterface;
 
 /**
  * Model for a XX_MODULE_NAME record object itself
@@ -19,7 +19,8 @@ use Kajona\System\System\AdminListableInterface;
  * @module XX_MODULE_NAME
  * @moduleId _XX_MODULE_NAME_module_id_
  */
-class XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME extends Model implements ModelInterface, AdminListableInterface {
+class XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME extends Model implements ModelInterface, AdminListableInterface
+{
 
 XX_RECORD_PROPERTIES
 
@@ -31,7 +32,8 @@ XX_RECORD_PROPERTIES
      * @return string the name of the icon, not yet wrapped by getImageAdmin(). Alternatively, you may return an array containing
      *         [the image name, the alt-title]
      */
-    public function getStrIcon() {
+    public function getStrIcon()
+    {
         return "icon_dot";
     }
 
@@ -40,7 +42,8 @@ XX_RECORD_PROPERTIES
      *
      * @return string
      */
-    public function getStrAdditionalInfo() {
+    public function getStrAdditionalInfo()
+    {
         return "";
     }
 
@@ -49,7 +52,8 @@ XX_RECORD_PROPERTIES
      *
      * @return string
      */
-    public function getStrLongDescription() {
+    public function getStrLongDescription()
+    {
         return "";
     }
 
@@ -58,7 +62,8 @@ XX_RECORD_PROPERTIES
      *
      * @return string
      */
-    public function getStrDisplayName() {
+    public function getStrDisplayName()
+    {
         return uniStrTrim(XX_GET_STR_DISPLAYNAME, 150);
     }
 
