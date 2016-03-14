@@ -46,8 +46,9 @@ class XX_MODULE_NAME_UCFIRSTPortalController extends PortalController implements
             }
 
             $objMapper = new TemplateMapper($objOneRecord);
-            $strEntries .= $objMapper->writeToTemplate("/module_".$this->getArrModule("modul")."/".$this->arrElementData["char1"], "XX_MODULE_NAME_record", false);
+            $strEntry = $objMapper->writeToTemplate("/module_".$this->getArrModule("modul")."/".$this->arrElementData["char1"], "XX_MODULE_NAME_record", false);
 
+            $strEntries .= PagesPortaleditor::addPortaleditorContentWrapper($strEntry, $objOneRecord->getSystemid());
 
             PagesPortaleditor::getInstance()->registerAction(
                 new PagesPortaleditorSystemidAction(PagesPortaleditorActionEnum::EDIT(), Link::getLinkAdminHref($this->getArrModule("module"), "edit", "&pe=1&systemid={$objOneRecord->getSystemid()}"), $objOneRecord->getSystemid())
@@ -60,6 +61,7 @@ class XX_MODULE_NAME_UCFIRSTPortalController extends PortalController implements
             PagesPortaleditor::getInstance()->registerAction(
                 new PagesPortaleditorSystemidAction(PagesPortaleditorActionEnum::CREATE(), Link::getLinkAdminHref($this->getArrModule("module"), "new", "&pe=1"), $objOneRecord->getSystemid())
             );
+
         }
 
         return $this->objTemplate->fillTemplateFile(array("XX_MODULE_NAME_records" => $strEntries), "/module_".$this->getArrModule("modul")."/".$this->arrElementData["char1"], "XX_MODULE_NAME_list");
