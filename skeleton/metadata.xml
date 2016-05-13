@@ -10,6 +10,7 @@
     <type>MODULE</type>
     <providesInstaller>TRUE</providesInstaller>
     <requiredModules>
-        <module name="system" version="4.7" />
+        <module name="system" version="5.0" />
+        XX_PORTAL_ONLY_START<module name="pages" version="5.0" />XX_PORTAL_ONLY_END
     </requiredModules>
 </package>
