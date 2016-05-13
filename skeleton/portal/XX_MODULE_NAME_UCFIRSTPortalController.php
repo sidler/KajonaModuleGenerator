@@ -40,7 +40,7 @@ class XX_MODULE_NAME_UCFIRSTPortalController extends PortalController implements
 
         $strEntries = "";
         //Check rights
-        foreach (XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME::getObjectList() as $objOneRecord) {
+        foreach (XX_MODULE_NAME_UCFIRSTXX_RECORD_NAME::getObjectListFiltered() as $objOneRecord) {
             if (!$objOneRecord->rightView() || $objOneRecord->getIntRecordStatus() == 0) {
                 continue;
             }
