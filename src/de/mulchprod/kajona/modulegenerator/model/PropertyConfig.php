@@ -2,8 +2,10 @@
 namespace de\mulchprod\kajona\modulegenerator\model;
 
 use de\mulchprod\kajona\modulegenerator\controller\ConfigManager;
+use de\mulchprod\kajona\modulegenerator\logger\LogTrait;
 
 class PropertyConfig {
+    use LogTrait;
 
     private $strName = "";
     private $bitIndexable = false;
@@ -82,6 +84,11 @@ class PropertyConfig {
 
         if($this->getStrDatatype() == "double")
             $strPrefix = "float";
+
+        if(!preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/D', $strPrefix.$this->getStrName())) {
+            $this->log("<b>Property name ".$this->getStrName()." contains invalid chars, may break php execution!</b>");
+        }
+
 
         return $strPrefix.ucfirst($this->getStrName());
     }
